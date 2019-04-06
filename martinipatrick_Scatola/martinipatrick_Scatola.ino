@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h>
+  #include <LiquidCrystal.h>
 
 int led = 4;
 int ledRgbV = 7;
@@ -37,30 +37,35 @@ int controllaBottone(int value){
 void eseguiTest(int tempo){
   reset();
   lcd.print("Inizio Test");
+  lcd.setCursor(0,1);
+  lcd.print("Riflessi"); 
   delay(1000);
   lcd.clear();
-  tempo = random(1,5000);
-  delay(tempo);
+  delay(random(1,5000));
   digitalWrite(led,HIGH);
-  int ris = contatempo(btnLed,0);
+  int tempo1 = contatempo(btnLed,0);
   digitalWrite(led,LOW);
-  String s = "ms";
-  lcd.print(ris + s);
+  lcd.setCursor(0,0);
+  lcd.print("Tempo Led");
+  lcd.setCursor(0,1);
+  lcd.print("= " + (String)tempo1 + "ms");
   delay(1000);
   lcd.clear();
-  tempo = random(1,5000);
-  delay(tempo);
+  delay(random(1,5000));
   digitalWrite(buzzer,LOW);
-  int ris_ = contatempo(btnBuzzer,0);
+  int tempo2 = contatempo(btnBuzzer,0);
   digitalWrite(buzzer,HIGH);
-  lcd.print(ris_ + s);
+  lcd.setCursor(0,0);
+  lcd.print("Tempo Buzzer");
+  lcd.setCursor(0,1);
+  lcd.print(" = " +(String)tempo2 + "ms");
   delay(1000);
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print(ris + s);
+  lcd.print("Tempo1 = " + (String)tempo1 + "ms");
   lcd.setCursor(0,1);
-  lcd.print(ris_ + s);
-  if (ris<400 && ris_<400){
+  lcd.print("Tempo2 = " + (String)tempo2 + "ms");
+  if (tempo1 < 400 && tempo2 < 400){
     analogWrite(ledRgbV,255);
   }else{
     analogWrite(ledRgbR,255);
@@ -68,13 +73,13 @@ void eseguiTest(int tempo){
 }
 
 
-int contatempo(int button, int cont){
+int contatempo(int button, int contatore){
   while(digitalRead(button) == LOW)
   {
-    cont++;
+    contatore++;
     delay(1);
   }
-  return cont;
+  return contatore;
 }
 
 void reset(){
