@@ -62,16 +62,15 @@ void eseguiTest(int tempo){
   delay(1000);
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print("Tempo1 = " + (String)tempo1 + "ms");
+  lcd.print("Tempo1 = " + (String)tempo1 + " ms");
   lcd.setCursor(0,1);
-  lcd.print("Tempo2 = " + (String)tempo2 + "ms");
+  lcd.print("Tempo2 = " + (String)tempo2 + " ms");
   if (tempo1 < 400 && tempo2 < 400){
     analogWrite(ledRgbV,255);
   }else{
     analogWrite(ledRgbR,255);
   }
 }
-
 
 int contatempo(int button, int contatore){
   while(digitalRead(button) == LOW)
