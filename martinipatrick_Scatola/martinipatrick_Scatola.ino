@@ -1,4 +1,4 @@
-  #include <LiquidCrystal.h>
+#include <LiquidCrystal.h>
 
 int led = 4;
 int ledRgbV = 7;
@@ -48,7 +48,7 @@ void eseguiTest(int tempo){
   lcd.setCursor(0,0);
   lcd.print("Tempo Led");
   lcd.setCursor(0,1);
-  lcd.print("= " + (String)tempo1 + "ms");
+  lcd.print("= " + (String)tempo1 + " ms");
   delay(1000);
   lcd.clear();
   delay(random(1,5000));
@@ -58,7 +58,7 @@ void eseguiTest(int tempo){
   lcd.setCursor(0,0);
   lcd.print("Tempo Buzzer");
   lcd.setCursor(0,1);
-  lcd.print(" = " +(String)tempo2 + "ms");
+  lcd.print(" = " +(String)tempo2 + " ms");
   delay(1000);
   lcd.clear();
   lcd.setCursor(0,0);
