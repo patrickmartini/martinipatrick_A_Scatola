@@ -31,7 +31,7 @@ void loop() {
 
 int controllaBottone(int value){
   if (value == HIGH){
-    eseguiTest(0);
+    eseguiTest(1000);
   }
 }
 void eseguiTest(int tempo){
@@ -48,7 +48,7 @@ void eseguiTest(int tempo){
   lcd.setCursor(0,0);
   lcd.print("Tempo Led");
   lcd.setCursor(0,1);
-  lcd.print("= " + (String)tempo1 + " ms");
+  lcd.print(" = " + (String)tempo1 + " ms");
   delay(1000);
   lcd.clear();
   delay(random(1,5000));
