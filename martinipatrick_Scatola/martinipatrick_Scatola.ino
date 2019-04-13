@@ -65,11 +65,17 @@ void eseguiTest(int tempo){
   lcd.print("Tempo1 = " + (String)tempo1 + " ms");
   lcd.setCursor(0,1);
   lcd.print("Tempo2 = " + (String)tempo2 + " ms");
-  if (tempo1 < 400 && tempo2 < 400){
+  if (tempo1 == 0 && tempo2 == 0){
+    analogWrite(ledRgbR,255);
+    lcd.print("ERRORE");
+  }
+  else if
+  (tempo1 < 250 && tempo2 < 250){
     analogWrite(ledRgbV,255);
   }else{
     analogWrite(ledRgbR,255);
   }
+}
 }
 
 int contatempo(int button, int contatore){
